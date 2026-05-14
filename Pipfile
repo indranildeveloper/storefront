@@ -9,6 +9,7 @@ django-debug-toolbar = "*"
 django-stubs = "*"
 psycopg = {extras = ["binary"], version = "*"}
 python-dotenv = "*"
+pylint-django = "*"
 
 [dev-packages]
 

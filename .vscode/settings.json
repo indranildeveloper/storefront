@@ -1,4 +1,11 @@
 {
   "python-envs.defaultEnvManager": "ms-python.python:pipenv",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.extraPaths": ["."],
+  "pylint.args": [
+    "--load-plugins=pylint_django",
+    "--django-settings-module=storefront.settings"
+  ],
   "cSpell.words": ["dotenv"]
 }
