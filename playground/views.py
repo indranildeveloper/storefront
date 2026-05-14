@@ -13,7 +13,7 @@ def say_hello(request):
 
         item = OrderItem()
         item.order = order
-        item.product_id = -1
+        item.product_id = 1
         item.quantity = 1
         # pyrefly: ignore [bad-assignment]
         item.unit_price = 10
