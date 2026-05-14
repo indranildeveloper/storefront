@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.db.models import Q, F
+
+# from django.db.models import Q, F
 
 from store.models import Product
 
@@ -7,6 +8,7 @@ from store.models import Product
 
 
 def say_hello(request):
-    query_set = Product.objects.filter(inventory=F("collection__id"))
+    product = Product.objects.order_by("unit_price")[0]
+    product = Product.objects.latest("unit_price")
 
-    return render(request, "hello.html", {"name": "Indra", "products": list(query_set)})
+    return render(request, "hello.html", {"name": "Indra", "product": product})
