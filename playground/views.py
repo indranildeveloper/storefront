@@ -1,13 +1,11 @@
 from django.shortcuts import render
 
-from store.models import Product, OrderItem
+from store.models import Product
 
 # Create your views here.
 
 
 def say_hello(request):
-    query_set = Product.objects.filter(
-        id__in=OrderItem.objects.values("product_id").distinct()
-    ).order_by("title")
+    query_set = Product.objects.defer("description")
 
     return render(request, "hello.html", {"name": "Indra", "products": list(query_set)})
