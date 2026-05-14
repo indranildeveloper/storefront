@@ -4,6 +4,7 @@ from django.db.models.aggregates import Count
 from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.http import urlencode
+
 from . import models
 
 
@@ -23,8 +24,8 @@ class InventoryFilter(admin.SimpleListFilter):
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     autocomplete_fields = ["collection"]
-    prepopulated_fields = {"slug": ["title"]}
     actions = ["clear_inventory"]
+    prepopulated_fields = {"slug": ["title"]}
     list_display = ["title", "unit_price", "inventory_status", "collection_title"]
     list_editable = ["unit_price"]
     list_filter = ["collection", "last_update", InventoryFilter]
