@@ -10,6 +10,7 @@ django-stubs = "*"
 psycopg = {extras = ["binary"], version = "*"}
 python-dotenv = "*"
 pylint-django = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
