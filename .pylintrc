@@ -1,2 +1,8 @@
 [MESSAGES CONTROL]
 disable=C0114,C0115,C0116
+
+[MASTER]
+load-plugins=pylint_django
+
+[CONFIG]
+django-settings-module=storefront.settings

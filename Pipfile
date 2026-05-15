@@ -6,13 +6,14 @@ name = "pypi"
 [packages]
 django = "*"
 django-debug-toolbar = "*"
-django-stubs = "*"
 psycopg = {extras = ["binary"], version = "*"}
 python-dotenv = "*"
 pylint-django = "*"
 djangorestframework = "*"
 
 [dev-packages]
+django-stubs = "*"
+djangorestframework-stubs = "*"
 
 [requires]
 python_version = "3.14"
