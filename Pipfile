@@ -10,6 +10,7 @@ psycopg = {extras = ["binary"], version = "*"}
 python-dotenv = "*"
 pylint-django = "*"
 djangorestframework = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 django-stubs = "*"
