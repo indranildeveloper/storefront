@@ -22,10 +22,10 @@ def product_list(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
-        return Response("Not Allowed.", status=status.HTTP_400_BAD_REQUEST)
+        return Response("Not Allowed.", status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
-@api_view(["GET", "PUT"])
+@api_view(["GET", "PUT", "DELETE"])
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == "GET":
@@ -36,8 +36,19 @@ def product_detail(request, product_id):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == "DELETE":
+        # pyrefly: ignore [missing-attribute]
+        if product.orderitems.count() > 0:
+            return Response(
+                {
+                    "error": "Product can not be deleted because it is associated with and order item."
+                },
+                status=status.HTTP_405_METHOD_NOT_ALLOWED,
+            )
+        product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     else:
-        return Response("Not Allowed.", status=status.HTTP_400_BAD_REQUEST)
+        return Response("Not Allowed.", status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
 @api_view()

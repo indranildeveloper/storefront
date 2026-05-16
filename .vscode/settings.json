@@ -10,5 +10,5 @@
     "--load-plugins=pylint_django",
     "--django-settings-module=storefront.settings"
   ],
-  "cSpell.words": ["dotenv"]
+  "cSpell.words": ["dotenv", "orderitem", "orderitems"]
 }
