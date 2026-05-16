@@ -15,6 +15,7 @@ djangorestframework = "*"
 django-stubs = "*"
 djangorestframework-stubs = "*"
 pyrefly = "*"
+isort = "*"
 
 [requires]
 python_version = "3.14"

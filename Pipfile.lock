@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "992bc2b33325da1662b025c720c4b411dbb0dbf62e60d41e81c072cd66cb0a15"
+            "sha256": "12677b395f48971174b4e89b911f1f041520bd8e794c9e68bcef3bf03e2122c5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -256,6 +256,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.10'",
             "version": "==3.17.0"
+        },
+        "isort": {
+            "hashes": [
+                "sha256:171ac4ff559cdc060bcfff550bc8404a486fee0caab245679c2abe7cb253c78d",
+                "sha256:28b89bc70f751b559aeca209e6120393d43fbe2490de0559662be7a9787e3d75"
+            ],
+            "markers": "python_full_version >= '3.10.0'",
+            "version": "==8.0.1"
         },
         "pyrefly": {
             "hashes": [
