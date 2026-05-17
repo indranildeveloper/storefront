@@ -2,7 +2,11 @@ from django.db.models.aggregates import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.filters import OrderingFilter, SearchFilter
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin
+from rest_framework.mixins import (
+    CreateModelMixin,
+    DestroyModelMixin,
+    RetrieveModelMixin,
+)
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
@@ -66,6 +70,8 @@ class ReviewViewSet(ModelViewSet):
         return {"product_id": self.kwargs["product_pk"]}
 
 
-class CartViewSet(CreateModelMixin, RetrieveModelMixin, GenericViewSet):
+class CartViewSet(
+    CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet
+):
     queryset = Cart.objects.prefetch_related("items__product").all()
     serializer_class = CartSerializer
