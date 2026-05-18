@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "playground",
     "store",
-    "store_custom",
     "tags",
     "likes",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -157,3 +157,5 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 REST_FRAMEWORK = {"COERCE_DECIMAL_TO_STRING": False}
+
+AUTH_USER_MODEL = "core.User"
