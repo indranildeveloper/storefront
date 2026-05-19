@@ -20,6 +20,7 @@
     "filterset",
     "orderitem",
     "orderitems",
+    "simplejwt",
     "viewsets"
   ]
 }
