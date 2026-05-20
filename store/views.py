@@ -7,15 +7,15 @@ from rest_framework.mixins import (
     CreateModelMixin,
     DestroyModelMixin,
     RetrieveModelMixin,
-    UpdateModelMixin,
 )
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
 from .filters import ProductFilter
 from .models import Cart, CartItem, Collection, Customer, OrderItem, Product, Review
 from .pagination import DefaultPagination
+from .permissions import IsAdminOrReadOnly
 from .serializers import (
     AddCartItemSerializer,
     CartItemSerializer,
@@ -35,6 +35,7 @@ class ProductViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = ProductFilter
     pagination_class = DefaultPagination
+    permission_classes = [IsAdminOrReadOnly]
     search_fields = ["title", "description"]
     ordering_fields = ["unit_price", "last_update"]
 
@@ -55,6 +56,7 @@ class ProductViewSet(ModelViewSet):
 class CollectionViewSet(ModelViewSet):
     queryset = Collection.objects.annotate(products_count=Count("products")).all()
     serializer_class = CollectionSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def destroy(self, request, *args, **kwargs):
         if Product.objects.filter(collection_id=kwargs["pk"]).count() > 0:
@@ -103,19 +105,17 @@ class CartItemViewSet(ModelViewSet):
         )
 
 
-class CustomerViewSet(
-    CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet
-):
+class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
 
-    def get_permissions(self):
-        if self.request.method == "GET":
-            return [AllowAny()]
-        return [IsAuthenticated()]
+    # def get_permissions(self):
+    #     if self.request.method == "GET":
+    #         return [AllowAny()]
+    #     return [IsAuthenticated()]
 
-    @action(detail=False, methods=["GET", "PUT"])
+    @action(detail=False, methods=["GET", "PUT"], permission_classes=[IsAuthenticated])
     def me(self, request):
         # pylint: disable-next=unused-variable
         customer, created = Customer.objects.get_or_create(user_id=request.user.id)
