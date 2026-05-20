@@ -13,7 +13,16 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
 from .filters import ProductFilter
-from .models import Cart, CartItem, Collection, Customer, OrderItem, Product, Review
+from .models import (
+    Cart,
+    CartItem,
+    Collection,
+    Customer,
+    Order,
+    OrderItem,
+    Product,
+    Review,
+)
 from .pagination import DefaultPagination
 from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
 from .serializers import (
@@ -22,6 +31,7 @@ from .serializers import (
     CartSerializer,
     CollectionSerializer,
     CustomerSerializer,
+    OrderSerializer,
     ProductSerializer,
     ReviewSerializer,
     UpdateCartItemSerializer,
@@ -136,3 +146,8 @@ class CustomerViewSet(ModelViewSet):
                 {"error": "This method is not allowed."},
                 status=status.HTTP_405_METHOD_NOT_ALLOWED,
             )
+
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
