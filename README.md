@@ -220,6 +220,7 @@ cp .env.example .env
 ### Run
 
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 python manage.py seed_db      # Seed 200+ products and collections
 python manage.py runserver
