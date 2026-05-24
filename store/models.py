@@ -59,6 +59,9 @@ class ProductImage(models.Model):
         validators=[validate_file_size],
     )
 
+    def __str__(self) -> str:
+        return f"{self.image.name}"
+
 
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = "B"
