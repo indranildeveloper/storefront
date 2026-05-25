@@ -1,11 +1,23 @@
-from django.shortcuts import render
+from django.core.mail import mail_admins, send_mail
+from django.core.mail.message import BadHeaderError
 from django.db import transaction
-from store.models import Order, OrderItem, Product, Customer, Collection
+from django.shortcuts import render
+
+from store.models import Order, OrderItem
 
 # Create your views here.
 
 
 def say_hello(request):
+    try:
+        # send_mail("subject", "message", "info@storefront.com", ["bob@storefront.com"])
+        mail_admins(
+            "subject",
+            "message",
+            html_message="message",
+        )
+    except BadHeaderError:
+        pass
     with transaction.atomic():
         order = Order()
         order.customer_id = 1
