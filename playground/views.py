@@ -1,7 +1,8 @@
-from django.core.mail import mail_admins, send_mail
+from django.core.mail import EmailMessage
 from django.core.mail.message import BadHeaderError
 from django.db import transaction
 from django.shortcuts import render
+from templated_mail.mail import BaseEmailMessage
 
 from store.models import Order, OrderItem
 
@@ -11,11 +12,22 @@ from store.models import Order, OrderItem
 def say_hello(request):
     try:
         # send_mail("subject", "message", "info@storefront.com", ["bob@storefront.com"])
-        mail_admins(
-            "subject",
-            "message",
-            html_message="message",
+        # mail_admins(
+        #     "subject",
+        #     "message",
+        #     html_message="message",
+        # )
+        # message = EmailMessage(
+        #     "subject", "message", "info@storefront.com", ["john@storefront.com"]
+        # )
+        # message.attach_file("playground/static/images/thumbnail.png")
+        # message.send()
+        message = BaseEmailMessage(
+            template_name="emails/hello.html",
+            context={"name": "Indra"},
         )
+        message.send(["john@storefront.com"])
+
     except BadHeaderError:
         pass
     with transaction.atomic():
