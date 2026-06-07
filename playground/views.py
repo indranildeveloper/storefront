@@ -1,48 +1,12 @@
-# from django.core.mail import EmailMessage
-from django.core.mail.message import BadHeaderError
-from django.db import transaction
 from django.shortcuts import render
-from templated_mail.mail import BaseEmailMessage
 
-from store.models import Order, OrderItem
+from .tasks import notify_customers
+
 
 # Create your views here.
-
-
 def say_hello(request):
-    try:
-        # send_mail("subject", "message", "info@storefront.com", ["bob@storefront.com"])
-        # mail_admins(
-        #     "subject",
-        #     "message",
-        #     html_message="message",
-        # )
-        # message = EmailMessage(
-        #     "subject", "message", "info@storefront.com", ["john@storefront.com"]
-        # )
-        # message.attach_file("playground/static/images/thumbnail.png")
-        # message.send()
-        message = BaseEmailMessage(
-            template_name="emails/hello.html",
-            context={"name": "Indra"},
-        )
-        message.send(["john@storefront.com"])
-
-    except BadHeaderError:
-        pass
-    with transaction.atomic():
-        order = Order()
-        order.customer_id = 1
-        order.save()
-
-        item = OrderItem()
-        item.order = order
-        item.product_id = 1
-        item.quantity = 1
-        # pyrefly: ignore [bad-assignment]
-        item.unit_price = 10
-        item.save()
-
+    # pyrefly: ignore [missing-attribute]
+    notify_customers.delay("Hello")
     return render(
         request,
         "hello.html",

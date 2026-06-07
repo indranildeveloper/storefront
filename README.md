@@ -233,3 +233,17 @@ The included `seed_db` management command populates the database with:
 - **10 collections** (Flowers, Grocery, Beauty, Cleaning, etc.)
 - **200+ products** with realistic titles, prices, and inventory counts
 - Additional SQL files in `seed/` directory for customers
+
+### Run Redis
+
+Run redis in a docker container
+
+```bash
+docker run -d -p 6379:6379 redis
+```
+
+### Run celery in the project
+
+```bash
+celery -A storefront worker --loglevel=info
+```
