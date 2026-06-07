@@ -247,3 +247,15 @@ docker run -d -p 6379:6379 redis
 ```bash
 celery -A storefront worker --loglevel=info
 ```
+
+### Run celery beat for scheduled tasks
+
+```bash
+celery -A storefront beat
+```
+
+### Run celery flower to monitor tasks
+
+```bash
+celery -A storefront flower
+```
