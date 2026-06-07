@@ -1,4 +1,4 @@
-from django.core.mail import EmailMessage
+# from django.core.mail import EmailMessage
 from django.core.mail.message import BadHeaderError
 from django.db import transaction
 from django.shortcuts import render
