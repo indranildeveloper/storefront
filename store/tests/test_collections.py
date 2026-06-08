@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 
+# Test behavior not implementation
 @pytest.mark.django_db
 class TestCreateCollection:
     def test_if_user_is_anonymous_returns_401(self):

@@ -259,3 +259,15 @@ celery -A storefront beat
 ```bash
 celery -A storefront flower
 ```
+
+### Run Tests
+
+```bash
+pytest
+```
+
+### Continuous Testing
+
+```bash
+ptw
+```
