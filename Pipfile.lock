@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d4ab2f80d43a6887d0a74b35c93c1529e2657e2e0d719ab449c80c4db3d74cb8"
+            "sha256": "fedc7a4fdaf8dd8016466b864d51c3e9f6fa63dc5028ffe5de77c692b2c54a97"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1000,6 +1000,15 @@
             ],
             "markers": "python_full_version >= '3.10.0'",
             "version": "==8.0.1"
+        },
+        "model-bakery": {
+            "hashes": [
+                "sha256:0cd8e958e229734bd41feffdcb513a0f079c79c9ddb2e0aad11ed2c23f6d43d5",
+                "sha256:65bfa0405d3ea60aca8c21e7e184c6617d6c8d32d0493cc75232a4476f471514"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.10'",
+            "version": "==1.23.4"
         },
         "packaging": {
             "hashes": [
