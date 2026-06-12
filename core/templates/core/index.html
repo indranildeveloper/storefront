@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storefront</title>
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Storefront</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Welcome to Storefront</h1>
+        <p>Discover amazing products at unbeatable prices.</p>
+        <a href="#" class="btn">Shop Now</a>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <h2>Free Shipping</h2>
+          <p>On orders over $50</p>
+        </div>
+        <div class="feature">
+          <h2>24/7 Support</h2>
+          <p>We're here to help</p>
+        </div>
+        <div class="feature">
+          <h2>Easy Returns</h2>
+          <p>30-day return policy</p>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial">
+            <p>"Great quality and fast shipping!"</p>
+            <span>- Happy Customer</span>
+          </div>
+          <div class="testimonial">
+            <p>"Amazing customer service."</p>
+            <span>- Satisfied Shopper</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <details>
+          <summary>How long does shipping take?</summary>
+          <p>
+            Standard shipping takes 5-7 business days. Express shipping takes
+            1-2 business days.
+          </p>
+        </details>
+        <details>
+          <summary>What is your return policy?</summary>
+          <p>
+            You can return any unused item within 30 days of purchase for a full
+            refund.
+          </p>
+        </details>
+        <details>
+          <summary>Do you ship internationally?</summary>
+          <p>Yes, we ship to over 50 countries worldwide.</p>
+        </details>
+      </section>
+
+      <section class="team">
+        <h2>Meet the Creator</h2>
+        <div class="team-member">
+          <h3>Indranil Halder</h3>
+          <p>Full Stack Software Engineer.</p>
+          <p>
+            Built this application from the ground up with a passion for great
+            user experiences.
+          </p>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>To use the API, visit our GitHub repository.</p>
+        <a href="https://github.com/indranildeveloper/storefront" class="btn"
+          >View on GitHub</a
+        >
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Storefront. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
