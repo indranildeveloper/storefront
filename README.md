@@ -4,6 +4,12 @@ A RESTful e-commerce API built with **Django 6.0** and **Django REST Framework**
 
 ---
 
+## Home Page
+
+![Storefront Home Page](screenshots/storefront-screenshot.png)
+
+---
+
 ## Tech Stack
 
 | Layer      | Technology                            |
