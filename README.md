@@ -277,3 +277,9 @@ pytest
 ```bash
 ptw
 ```
+
+### Run with Docker Compose
+
+```bash
+docker compose up -d --build
+```
