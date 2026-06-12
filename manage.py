@@ -15,7 +15,7 @@ def main():
         load_dotenv(dotenv_path=str(DOT_ENV_PATH))
     else:
         print("No .env file found, please add a .env file.")
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "storefront.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "storefront.settings.dev")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
