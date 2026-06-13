@@ -20,7 +20,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: Indranil777
+      POSTGRES_PASSWORD: password123
       POSTGRES_DB: storefront
     volumes:
       - postgres_data:/var/lib/postgresql/data
