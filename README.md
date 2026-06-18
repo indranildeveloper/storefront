@@ -27,7 +27,7 @@ A RESTful e-commerce API built with **Django 6.0** and **Django REST Framework**
 
 ## Project Structure
 
-```
+```bash
 storefront/
 ├── .env                          # Environment variables (DB creds)
 ├── .env.example
